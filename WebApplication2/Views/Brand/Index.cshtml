@@ -1,0 +1,10 @@
+﻿@{
+	var brands = TempData["Brands"] as List<Brand>;
+	
+	<ul>
+	@foreach (var brand in brands)
+	{
+			<li style="text-decoration:none"><a asp-action="detail" asp-route-id="@brand.Id">@brand.Name</a></li>
+	}
+	</ul>
+}

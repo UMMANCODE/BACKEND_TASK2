@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@{
+	var products = TempData["Products"] as List<Product>;
+	var brands = TempData["Brands"] as List<Brand>;
+<div style="display:flex; justify-content:space-between;">
+	<ul>
+<h1>Products</h1>
+		@foreach (var product in products) {
+			<li style="text-decoration:none">
+				<a asp-controller="product" asp-action="detail" asp-route-id="@product.Id">@product.Name</a>
+				<p style="text-decoration:none">@product.Price</p>
+			</li>
+		}
+	</ul>
+
+<ul>
+	<h1>Brands</h1>
+		@foreach (var brand in brands)
+		{
+			<li style="text-decoration:none"><a asp-controller="brand" asp-action="detail" asp-route-id="@brand.Id">@brand.Name</a></li>
+		}
+</ul>
+	</div>
+
+}
